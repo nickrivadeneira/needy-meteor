@@ -1,6 +1,13 @@
 NeedForm = React.createClass({
   parseTags(tags) {
-    return _.map(_.uniq(tags.split(",")), tag => tag.trim());
+    return (
+      _.compact(
+        _.map(
+          _.uniq(tags.split(",")),
+          tag => tag.trim()
+        )
+      )
+    );
   },
 
   handleSubmit(event) {

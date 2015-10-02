@@ -9,8 +9,18 @@ Need = React.createClass({
     Needs.remove(this.props.need._id);
   },
 
+  owner() {
+    return Meteor.users.findOne(this.props.need.owner);
+  }
+
   ownerName() {
-    return Meteor.users.findOne(this.props.need.owner).profile.name;
+    return this.owner().profile.name;
+  },
+
+  ownerAvatar() {
+    let hash = md5(this.owner().email);
+
+    return "http://www.gravatar.com/avatar/" + hash;
   },
 
   renderTags() {
@@ -22,10 +32,12 @@ Need = React.createClass({
   render() {
     return (
       <li>
+        <img src="{this.ownerAvatar()}" />
         <div>{this.props.need.title} - <a href="" onClick={this.deleteThisNeed}>Delete</a></div>
         <p>{this.props.need.description}</p>
         <div>{this.ownerName()}</div>
         <div>{this.renderTags()}</div>
+        <hr />
       </li>
     );
   }
