@@ -11,16 +11,14 @@ Need = React.createClass({
 
   owner() {
     return Meteor.users.findOne(this.props.need.owner);
-  }
+  },
 
   ownerName() {
     return this.owner().profile.name;
   },
 
   ownerAvatar() {
-    let hash = md5(this.owner().email);
-
-    return "http://www.gravatar.com/avatar/" + hash;
+    return this.owner().services.google.picture;
   },
 
   renderTags() {
@@ -31,13 +29,12 @@ Need = React.createClass({
 
   render() {
     return (
-      <li>
-        <img src="{this.ownerAvatar()}" />
+      <li className="sheet step-1 margin-bottom">
+        <img src={this.ownerAvatar()} className="avatar" />
         <div>{this.props.need.title} - <a href="" onClick={this.deleteThisNeed}>Delete</a></div>
         <p>{this.props.need.description}</p>
         <div>{this.ownerName()}</div>
         <div>{this.renderTags()}</div>
-        <hr />
       </li>
     );
   }

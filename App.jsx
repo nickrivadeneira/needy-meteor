@@ -16,21 +16,8 @@ App = React.createClass({
   render() {
     return (
       <div className="container">
-        <header className="navigation" role="banner">
-          <div className="navigation-wrapper">
-            <nav role="navigation">
-              <ul id="js-navigation-menu" className="navigation-menu show">
-                <li className="nav-link"><a href="javascript:void(0)">Products</a></li>
-                <li className="nav-link"><a href="javascript:void(0)">About Us</a></li>
-                <li className="nav-link"><a href="javascript:void(0)">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-        </header>
-
+        <Navbar />
         <div className="app-container">
-          <AccountsUIWrapper />
-
           <NeedForm />
 
           <ul>

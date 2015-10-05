@@ -32,21 +32,25 @@ NeedForm = React.createClass({
 
   render() {
     return (
-      <form className="new-need" onSubmit={this.handleSubmit} >
-        <input
-          type="text"
-          ref="titleInput"
-          placeholder="Need title" />
-        <textarea
-          ref="descriptionInput"
-          placeholder="Need description" />
-        <input
-          type="text"
-          ref="tagInput"
-          placeholder="Add tags separated by commas" />
+      <section className="sheet step-1 margin-bottom sheet--first">
+        <form className="new-need" onSubmit={this.handleSubmit} >
+          <input
+            type="text"
+            ref="titleInput"
+            placeholder="Title" />
+          <textarea
+            ref="descriptionInput"
+            placeholder="Description" />
+          <input
+            type="text"
+            ref="tagInput"
+            placeholder="Add tags separated by commas" />
 
-        <button type="submit">Create</button>
-      </form>
+          <div className="align-right">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+      </section>
     );
   }
 });

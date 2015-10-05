@@ -23,6 +23,7 @@ fourseven:scss
 wolves:bourbon
 wolves:neat
 wolves:bitters
-accounts-ui
 accounts-google
 underscore
+jparker:gravatar
+accounts-ui-unstyled
